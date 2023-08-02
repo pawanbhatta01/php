@@ -1,3 +1,4 @@
+<?php require 'process/secure.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 
 <body>
     <div class="container my-5 py-5">
-        <h1 class="text-center"> Welcome to task management system</h1>
+        <h1 class="text-center"> Welcome <?php echo $_SESSION['name'] ?> to task management system</h1>
         <div class="text-center">
             <a href="users/index.php" class="btn btn-primary">Enter System</a>
         </div>

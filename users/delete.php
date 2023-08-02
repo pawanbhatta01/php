@@ -1,4 +1,5 @@
 <?php require '../connection/config.php'; ?>
+<?php require '../process/secure.php'; ?>
 
 <?php
 if (isset($_GET['id'])) {

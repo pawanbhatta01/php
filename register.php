@@ -1,5 +1,4 @@
-<?php require '../connection/config.php'; ?>
-<?php require '../process/secure.php'; ?>
+<?php require 'connection/config.php'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -7,15 +6,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Title</title>
 </head>
 
 <body>
-    <?php require '../layouts/navbar.php'; ?>
     <div class="container col-6 my-5 py-5">
-        <h1 class="text-center">Add User</h1>
+        <h1 class="text-center">Register</h1>
         <?php
         if (isset($_POST['submit'])) {
             $name = $_POST['name'];
@@ -31,38 +28,38 @@
                         $password = md5($password);
                         $result1 = $conn->query("INSERT INTO users(name,email,password) VALUES('$name','$email','$password')");
                         if ($result1) {
-                            echo "<script>alert('User Added Successfully');</script>";
-                            echo "<script>window.location.href='index.php';</script>";
+                            echo "<script>alert('User Registered Successfully');</script>";
+                            echo "<script>window.location.href='login.php';</script>";
                         } else {
         ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Some error occured! Please try again.</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <?php
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Some error occured! Please try again.</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php
                         }
                     } else {
                         ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Email already exists on our system.</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <?php
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Email already exists on our system.</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php
                     }
                 } else {
                     ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Password don't matched.</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <?php
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Password don't matched.</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php
                 }
             } else {
                 ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>All fields are required.</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>All fields are required.</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
         <?php
             }
         }
@@ -87,8 +84,7 @@
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 </body>
 
