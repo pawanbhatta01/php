@@ -1,5 +1,8 @@
 <?php
 session_start();
-session_reset();
+
+unset($_SESSION['email']);
+unset($_SESSION['name']);
+unset($_SESSION['id']);
 
 echo header('Location:login.php');
